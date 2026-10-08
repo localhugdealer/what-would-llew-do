@@ -10,7 +10,7 @@ The site is plain static HTML and CSS with no framework or build step, so there 
 
 ## Hosting
 
-The site is published with GitHub Pages, in the same way as the LocalHugDealer Studios site. GitHub Pages serves a project site from a subpath (`<user>.github.io/<repo>/`) until a custom domain is configured, so every asset path is relative.
+The site is published with GitHub Pages from the root of the `main` branch of [localhugdealer/what-would-llew-do](https://github.com/localhugdealer/what-would-llew-do), in the same way as the LocalHugDealer Studios site. It lives at https://localhugdealer.github.io/what-would-llew-do/. GitHub Pages serves a project site from a subpath (`<user>.github.io/<repo>/`) until a custom domain is configured, so every asset path is relative.
 
 ## Structure
 
