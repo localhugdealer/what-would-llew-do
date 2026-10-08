@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Friendly one-on-one tech help from Llewellyn Craddock in Cape Town. AI tools, automations, 3D printing, Excel, Wi-Fi, backups and more. Free 30 minute first chat.">
+  <title>What Would Llew Do? | Friendly tech help</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="What Would Llew Do?">
+  <meta property="og:title" content="What Would Llew Do? | Friendly tech help">
+  <meta property="og:description" content="Friendly one-on-one tech help from Llewellyn Craddock. Free 30 minute first chat.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    /* Hero */
+    .hero h1 em {
+      color: var(--gold-light);
+      font-style: normal;
+    }
+
+    .hero-inner {
+      max-width: var(--page);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      align-items: center;
+      gap: 3rem;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .hero h1 {
+      margin: 0 0 1.25rem;
+      font-size: clamp(2.5rem, 6vw, 4.25rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      max-width: 34rem;
+      margin: 0 0 2rem;
+      font-size: 1.2rem;
+      color: var(--mist);
+    }
+
+    .hero-photo {
+      width: min(100%, 22rem);
+      aspect-ratio: 1;
+      justify-self: center;
+      object-fit: cover;
+      border: 6px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    /* What I can help with */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card q {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-style: italic;
+      color: var(--green);
+    }
+
+    /* How it works */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin: 0 0 3rem;
+      padding: 0;
+      list-style: none;
+      counter-reset: step;
+    }
+
+    .steps li {
+      counter-increment: step;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      display: grid;
+      place-items: center;
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: 1rem;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--gold-light);
+      font-size: 1.3rem;
+      font-weight: 900;
+    }
+
+    .steps h3 {
+      margin: 0 0 0.5rem;
+      color: var(--green-dark);
+    }
+
+    .steps p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .pricing {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.25rem;
+      max-width: 44rem;
+    }
+
+    .price {
+      padding: 1.5rem;
+      border-radius: var(--radius);
+      background: var(--mist);
+    }
+
+    .price strong {
+      display: block;
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .price.featured {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .price.featured strong {
+      color: var(--gold-light);
+    }
+
+    /* About */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .about figure {
+      margin: 0;
+    }
+
+    .about figure img {
+      width: 100%;
+      border: 4px solid var(--white);
+      border-radius: var(--radius);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .about figcaption {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .about p {
+      margin: 0 0 1rem;
+      font-size: 1.1rem;
+    }
+
+    .about .about-more {
+      margin-top: 2rem;
+    }
+
+    .more-quotes {
+      margin: 2rem 0 0;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* Book */
+    .book {
+      background: var(--green-deep);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .book h2 {
+      color: var(--white);
+    }
+
+    .book .lead {
+      margin: 0 auto 2rem;
+      color: var(--sage);
+    }
+
+    .book small {
+      display: block;
+      margin-top: 1.25rem;
+      color: var(--gold-light);
+    }
+
+    @media (max-width: 800px) {
+      .hero-inner,
+      .about,
+      .steps,
+      .pricing {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-inner {
+        text-align: center;
+      }
+
+      .hero p {
+        margin-inline: auto;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+
+      .hero-photo {
+        grid-row: 1;
+        width: 14rem;
+      }
+
+      .about figure {
+        max-width: 22rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="hero">
+    <nav aria-label="Main">
+      <a class="brand" href="#">What Would <span>Llew</span> Do?</a>
+      <a href="#help">What I help with</a>
+      <a href="#how">How it works</a>
+      <a href="#about">About</a>
+      <a class="nav-keep" href="cv.html">CV</a>
+      <a class="nav-keep" href="#book">Book a chat</a>
+    </nav>
+
+    <div class="hero-inner">
+      <div>
+        <h1>Tech help that speaks <em>your language</em>.</h1>
+        <p>Friendly one-on-one help from Llewellyn Craddock, for anything from AI tools and automations to 3D printing, Excel, Wi-Fi or getting a PDF signed on your phone.</p>
+        <div class="actions">
+          <a class="btn btn-gold" href="#book">Book a free 30 minute chat</a>
+          <a class="btn btn-ghost" href="#help">See what I help with</a>
+        </div>
+      </div>
+      <img class="hero-photo" src="assets/images/profile.jpg" width="640" height="640" alt="Llewellyn Craddock smiling, wearing a hat">
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="band">
+      <section id="help">
+        <h2>What I can help with</h2>
+        <p class="lead">New tools are arriving faster than anyone can keep up with. If it's technical and you're not sure where to start, it probably fits here. These are the things people ask me about most.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>AI and chatbots</h3>
+            <q>Which AI should I actually be using?</q>
+            <p>Pick the right tool, set it up and learn how to get useful answers out of it. I've built my own AI platform, so I know where these tools shine and where they trip up.</p>
+          </article>
+          <article class="card">
+            <h3>Simple automations</h3>
+            <q>I do the same thing every single week.</q>
+            <p>Automate the repetitive bits, like sorting emails, filing documents or updating spreadsheets.</p>
+          </article>
+          <article class="card">
+            <h3>3D modelling and printing</h3>
+            <q>I have an idea. How do I make it real?</q>
+            <p>From your first model to choosing a printer and getting a clean print.</p>
+          </article>
+          <article class="card">
+            <h3>Everyday tech</h3>
+            <q>Why won't my printer connect?</q>
+            <p>Printers, Wi-Fi, new laptops and phones, and the small things like signing a PDF on your phone.</p>
+          </article>
+          <article class="card">
+            <h3>Backups and staying safe</h3>
+            <q>What happens if I lose my laptop?</q>
+            <p>Backups, passwords and spotting scams, from someone with a background in cybersecurity.</p>
+          </article>
+          <article class="card">
+            <h3>Excel and data</h3>
+            <q>There must be a better way to do this spreadsheet.</q>
+            <p>Formulas, tidy spreadsheets and simple dashboards that make your numbers easier to read.</p>
+          </article>
+          <article class="card">
+            <h3>Game design</h3>
+            <q>I want to make a game. Where do I start?</q>
+            <p>Getting going with Godot or Unity, and turning an idea into a playable prototype. I learnt Godot in a week for my first game jam and placed #41 for enjoyment out of 2,248 entries, so I know what those first steps feel like.</p>
+          </article>
+          <article class="card">
+            <h3>Learning any new tool</h3>
+            <q>I just need someone to show me.</q>
+            <p>If it's digital and you're stuck, it's worth asking. If it's not something I can help with, I'll tell you upfront.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <p class="lead">Simple and low pressure. The first chat is free, so you only pay once we both know I can help.</p>
+      <ol class="steps">
+        <li>
+          <h3>Book a free chat</h3>
+          <p>Tell me what you're stuck on and we'll set up 30 minutes. No cost and no obligation.</p>
+        </li>
+        <li>
+          <h3>We make a plan</h3>
+          <p>I ask "why" until the real problem shows up, then we work out how many sessions it's likely to take. Sometimes the free chat is enough to sort it out.</p>
+        </li>
+        <li>
+          <h3>We work through it together</h3>
+          <p>I explain as we go, so you walk away knowing how to do it yourself, not just with something that works.</p>
+        </li>
+      </ol>
+      <div class="pricing">
+        <div class="price">
+          <strong>Free</strong>
+          Your first 30 minute chat
+        </div>
+        <div class="price featured">
+          <strong>R300 / hour</strong>
+          For sessions after that
+        </div>
+      </div>
+    </section>
+
+    <div class="band">
+      <section id="about" class="about">
+        <figure>
+          <img src="assets/images/young-llew.jpg" width="377" height="252" alt="A young Llewellyn at the family computer">
+          <figcaption>Starting early, at the family computer.</figcaption>
+        </figure>
+        <div>
+          <h2>Hi, I'm Llewellyn. Llew for short.</h2>
+          <p>Tech is my language, and translating it into plain English is the part I enjoy most.</p>
+          <p>Over the years friends, family and friends of friends have come to me with all sorts: printers that won't print, backups, Wi-Fi, Excel, and more recently how to use AI or how to start building a game. What Would Llew Do brings that together in one place, so anyone who is stuck has someone to ask.</p>
+          <p>I've spent more than 10 years in tech, from technical support and keeping businesses secure to five years at VMware Carbon Black, helping large companies across Europe, the Middle East and Africa protect their computers. From 2023 I founded Nova Mentis and built Nova Nexus, an AI platform that helps people turn big goals into clear next steps, and ran one-on-one workshops with its early users. Now I make games as <a href="https://www.localhugdealer.com/">LocalHugDealer Studios</a>.</p>
+          <p>Along the way I've spent years coaching and mentoring, and nothing beats watching someone succeed because of a conversation we had.</p>
+          <ul class="chips">
+            <li>10+ years in tech</li>
+            <li>Cybersecurity background</li>
+            <li>CompTIA Security+</li>
+            <li>AI engineering</li>
+            <li>Coach and mentor</li>
+            <li>Game developer</li>
+            <li>Muizenberg, Cape Town</li>
+          </ul>
+          <p class="about-more"><a class="btn" href="cv.html">See my full experience</a></p>
+        </div>
+      </section>
+    </div>
+
+    <section id="testimonials">
+      <h2>What people say</h2>
+      <p class="lead">From workshops, masterclasses, clients and the people I've worked alongside.</p>
+      <div class="quotes">
+        <blockquote class="featured">
+          <p>"I feel like I have been shooting in the dark, and he just turned the light on!"</p>
+          <footer><span class="who">Samantha</span>Marketing direction workshop</footer>
+        </blockquote>
+        <blockquote>
+          <p>"Amazing ability to deliver highly technical content in an easy to digest format."</p>
+          <footer><span class="who">Shaun Larvin</span>RVP Channels EMEA, VMware Carbon Black</footer>
+        </blockquote>
+        <blockquote>
+          <p>"It was such a pleasure to be guided and held through the process with Llewellyn. He really is a master of his craft."</p>
+          <footer><span class="who">Skill Forge client</span>Scorecard project, 2026</footer>
+        </blockquote>
+        <blockquote>
+          <p>"The trainer was very calm and explained everything... he answered all the questions in a way we don't have follow ups."</p>
+          <footer><span class="who">Masterclass attendee</span>Skill Forge masterclass</footer>
+        </blockquote>
+        <blockquote>
+          <p>"He took the time to deeply understand my needs and goals, communicated clearly throughout the process, and delivered with impressive speed and calm professionalism."</p>
+          <footer><span class="who">Natasha</span>Stress to Strength</footer>
+        </blockquote>
+        <blockquote>
+          <p>"Always took the time to assist, teach and mentor those around him."</p>
+          <footer><span class="who">Tamaryn Theron</span>Colleague at Obsequium</footer>
+        </blockquote>
+        <blockquote>
+          <p>"No chasing. No lag. Just a team that shows up, gets it, and delivers."</p>
+          <footer><span class="who">Jodi</span>Tracey Clark</footer>
+        </blockquote>
+        <blockquote>
+          <p>"Within 30 minutes... I was able to get clarity on the exact vision I wanted to work towards."</p>
+          <footer><span class="who">Early access user</span>Nova Nexus</footer>
+        </blockquote>
+        <blockquote>
+          <p>"When the odds are stacked against you, you want him in your corner."</p>
+          <footer><span class="who">Mark-Anthony Salgado</span>Co-Founder at Cyber83</footer>
+        </blockquote>
+      </div>
+      <p class="more-quotes"><a href="cv.html#recommendations">Read more recommendations</a></p>
+    </section>
+
+    <div class="book">
+      <section id="book">
+        <h2>Not sure where to start? That's the point.</h2>
+        <p class="lead">Send me a message with what you're stuck on and we'll set up a free 30 minute chat to work out how I can help.</p>
+        <!-- The single contact point for the whole page. Every "Book" button links to this section. -->
+        <a class="btn btn-gold" href="https://www.linkedin.com/in/llewellyn-craddock-590366113/">Message me on LinkedIn</a>
+        <small>Free first chat, then R300 per hour.</small>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2026 Llewellyn Craddock, Muizenberg, Cape Town
+    <br>
+    <a href="https://www.linkedin.com/in/llewellyn-craddock-590366113/">LinkedIn</a>
+    <a href="https://www.localhugdealer.com/">LocalHugDealer Studios</a>
+  </footer>
+</body>
+</html>

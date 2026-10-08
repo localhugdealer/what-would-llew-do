@@ -1,0 +1,339 @@
+/* Shared site chrome: palette, resets, buttons and the layout pieces every page uses
+   (sections, nav, quotes, footer). Every page links this after the font stylesheet. */
+
+:root {
+  /* Brand palette: muted greens and white, with gold as the accent. */
+  --white: #FFFFFF;
+  --mist: #EEF3EF;
+  --sage: #A9C2B3;
+  --green: #2F6B55;
+  --green-dark: #24523F;
+  --green-deep: #1B3D2F;
+  --gold: #C9A23F;
+  --gold-light: #E9D7A3;
+  --ink: #1F2A25;
+  --muted: #55645C;
+
+  /* Translucent tints, kept here so pages never need literal colour values. */
+  --overlay: rgba(255, 255, 255, 0.12);
+  --shadow: rgba(31, 42, 37, 0.15);
+
+  --font: "Roboto", system-ui, sans-serif;
+  --radius: 1rem;
+  --page: 72rem;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: var(--white);
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.85em 1.7em;
+  border: 2px solid var(--green-dark);
+  border-radius: 999px;
+  background: var(--green);
+  color: var(--white);
+  font: inherit;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s, background 0.15s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  background: var(--green-dark);
+}
+
+/* Gold is the call to action colour, so it is reserved for booking buttons. */
+.btn-gold {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--green-deep);
+}
+
+.btn-gold:hover {
+  background: var(--gold-light);
+}
+
+.btn-ghost {
+  border-color: currentColor;
+  background: transparent;
+  color: inherit;
+}
+
+.btn-ghost:hover {
+  background: var(--overlay);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* Keyboard focus ring: dark green on light backgrounds, light gold on dark green ones. */
+:focus-visible {
+  outline: 3px solid var(--green-dark);
+  outline-offset: 3px;
+}
+
+.hero :focus-visible,
+.book :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--gold-light);
+}
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  z-index: 10;
+  padding: 0.5rem 1rem;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background: var(--gold);
+  color: var(--green-deep);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* Page layout shared by every page. */
+section {
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 5rem 2rem;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4.5vw, 2.75rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: var(--green);
+}
+
+.lead {
+  max-width: 40rem;
+  margin: 0 0 3rem;
+  font-size: 1.15rem;
+  color: var(--muted);
+}
+
+/* Full-width tinted band; the section inside keeps the page width. */
+.band {
+  background: var(--mist);
+}
+
+.hero {
+  background: var(--green);
+  color: var(--white);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: var(--page);
+  margin: 0 auto;
+  padding: 1.25rem 2rem;
+}
+
+.brand {
+  margin-right: auto;
+  font-size: 1.2rem;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.brand span {
+  color: var(--gold-light);
+}
+
+nav a:not(.brand) {
+  padding: 0.5rem 0.25rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+nav a:not(.brand):hover {
+  color: var(--gold-light);
+}
+
+.card {
+  padding: 1.5rem;
+  border: 1px solid var(--sage);
+  border-top: 4px solid var(--gold);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.card h3 {
+  margin: 0 0 0.75rem;
+  font-size: 1.15rem;
+  color: var(--green-dark);
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* Pill-shaped tags for short facts and skills. */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1.5rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chips li {
+  padding: 0.35em 0.9em;
+  border: 1px solid var(--green);
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--green-dark);
+}
+
+/* Quotes: two-column grid, with an optional full-width featured quote. */
+.quotes {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+blockquote {
+  margin: 0;
+  padding: 1.75rem;
+  border-left: 4px solid var(--gold);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--white);
+}
+
+/* Five gold stars above every quote. The alternative text after the slash is what
+   screen readers announce, instead of five separate star characters. */
+blockquote::before {
+  content: "\2605\2605\2605\2605\2605" / "Five stars";
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--gold);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+blockquote.featured::before {
+  color: var(--gold-light);
+}
+
+blockquote p {
+  margin: 0 0 1rem;
+}
+
+blockquote footer {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+blockquote .who {
+  display: block;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--green-dark);
+}
+
+blockquote.featured {
+  grid-column: 1 / -1;
+  background: var(--green);
+  color: var(--white);
+}
+
+blockquote.featured p {
+  font-size: 1.3rem;
+}
+
+blockquote.featured footer,
+blockquote.featured .who {
+  color: var(--gold-light);
+}
+
+.site-footer {
+  padding: 2rem;
+  background: var(--green-deep);
+  border-top: 1px solid var(--green-dark);
+  color: var(--sage);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.site-footer a {
+  margin: 0 0.5rem;
+}
+
+@media screen and (max-width: 800px) {
+  /* Phones keep only the brand and links marked .nav-keep. */
+  nav a:not(.brand):not(.nav-keep) {
+    display: none;
+  }
+
+  nav {
+    gap: 1rem;
+    padding-inline: 1.25rem;
+  }
+
+  nav a:not(.brand) {
+    white-space: nowrap;
+  }
+
+  .quotes {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .brand {
+    font-size: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+  }
+}

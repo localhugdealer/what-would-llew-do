@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Llewellyn Craddock: IT Solutions Engineer, AI engineer and game developer. Full experience, projects, skills and certifications.">
+  <title>Llewellyn Craddock | CV</title>
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="What Would Llew Do?">
+  <meta property="og:title" content="Llewellyn Craddock | CV">
+  <meta property="og:description" content="IT Solutions Engineer, AI engineer and game developer. Full experience, projects, skills and certifications.">
+  <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;0,900;1,400&display=swap">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <style>
+    section {
+      padding: 4rem 2rem;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 1.2rem;
+      color: var(--green-dark);
+    }
+
+    /* Header */
+    .cv-head {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: center;
+      gap: 2.5rem;
+      max-width: var(--page);
+      margin: 0 auto;
+      padding: 2rem 2rem 4rem;
+    }
+
+    .cv-photo {
+      width: 11rem;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border: 5px solid var(--gold);
+      border-radius: 50%;
+    }
+
+    .cv-head h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 5vw, 3.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+    }
+
+    .role-line {
+      margin: 0.4rem 0 0.75rem;
+      font-size: 1.25rem;
+      color: var(--gold-light);
+    }
+
+    .contact {
+      margin: 0 0 1.5rem;
+      color: var(--mist);
+    }
+
+    .summary p {
+      max-width: 48rem;
+      font-size: 1.1rem;
+    }
+
+    /* Career timeline */
+    .timeline {
+      margin: 0;
+      padding: 0 0 0 2rem;
+      border-left: 3px solid var(--sage);
+      list-style: none;
+    }
+
+    .timeline li {
+      position: relative;
+      margin-bottom: 2rem;
+    }
+
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      top: 0.35rem;
+      left: calc(-2rem - 9px);
+      width: 15px;
+      height: 15px;
+      border: 3px solid var(--green);
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .year {
+      font-weight: 900;
+      color: var(--green-dark);
+    }
+
+    .timeline p {
+      max-width: 44rem;
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+
+    /* Experience */
+    .role {
+      padding: 2rem 0;
+      border-top: 1px solid var(--sage);
+    }
+
+    .role-head {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.25rem 1rem;
+    }
+
+    .org {
+      margin: 0.15rem 0 0.75rem;
+      font-weight: 500;
+      color: var(--green);
+    }
+
+    .when {
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .role ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    .role li {
+      margin-bottom: 0.4rem;
+    }
+
+    /* Projects, skills and certifications share an auto-filling grid. */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
+      gap: 1.25rem;
+    }
+
+    .card .when {
+      display: block;
+      margin-bottom: 0.75rem;
+      font-size: 0.9rem;
+    }
+
+    .card a {
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .skill-group h3 {
+      font-size: 1.05rem;
+    }
+
+    .skill-group .chips {
+      margin-top: 0.75rem;
+    }
+
+    .certs h3 {
+      margin-bottom: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    .certs ul {
+      margin: 0;
+      padding-left: 1.2rem;
+      color: var(--muted);
+    }
+
+    .edu {
+      display: grid;
+      gap: 1.25rem;
+    }
+
+    .edu p {
+      margin: 0.25rem 0 0;
+      color: var(--muted);
+    }
+
+    .beyond .chips li {
+      background: var(--white);
+    }
+
+    .pdf-hint {
+      margin: 0.75rem 0 0;
+      font-size: 0.85rem;
+      color: var(--sage);
+    }
+
+    .print-only {
+      display: none;
+    }
+
+    @media screen and (max-width: 800px) {
+      .cv-head {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .actions {
+        justify-content: center;
+      }
+    }
+
+    /* The PDF comes from the browser's print dialog, so this block is the PDF layout.
+       It favours flowing text over boxed cards, because boxes cannot split across pages
+       and leave large gaps. */
+    @media print {
+      /* The footer names the owner on every page, so a loose printed page is still identifiable. */
+      @page {
+        size: A4;
+        margin: 12mm 14mm 14mm;
+
+        @bottom-center {
+          content: "Llewellyn Craddock, CV, page " counter(page) " of " counter(pages);
+          font-family: Roboto, sans-serif;
+          font-size: 8pt;
+        }
+      }
+
+      body {
+        font-size: 9.5pt;
+        line-height: 1.4;
+      }
+
+      nav,
+      .skip-link,
+      .actions,
+      .screen-only,
+      .site-footer {
+        display: none !important;
+      }
+
+      .print-only {
+        display: block;
+      }
+
+      .hero,
+      .band {
+        background: none;
+        color: var(--ink);
+      }
+
+      .cv-head {
+        padding: 0 0 3mm;
+        gap: 5mm;
+        border-bottom: 2px solid var(--green);
+      }
+
+      .cv-photo {
+        width: 24mm;
+        border-width: 2px;
+      }
+
+      .cv-head h1 {
+        color: var(--green);
+        font-size: 22pt;
+      }
+
+      .role-line {
+        margin: 1mm 0 2mm;
+        color: var(--green-dark);
+        font-size: 12pt;
+      }
+
+      .contact {
+        margin: 0;
+        color: var(--ink);
+        font-size: 9pt;
+      }
+
+      /* Printed links can't be clicked, so each header link shows a short readable address. */
+      .contact a[data-print] {
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      .contact a[data-print]::after {
+        content: ": " attr(data-print);
+        font-weight: 400;
+      }
+
+      section {
+        max-width: none;
+        padding: 4mm 0 0;
+      }
+
+      h2 {
+        margin: 0 0 2mm;
+        padding-bottom: 1mm;
+        border-bottom: 1px solid var(--sage);
+        font-size: 13pt;
+      }
+
+      h3 {
+        font-size: 10.5pt;
+      }
+
+      h2,
+      h3,
+      .role-head,
+      .org,
+      .card .when {
+        break-after: avoid;
+      }
+
+      .lead {
+        display: none;
+      }
+
+      .summary p {
+        margin: 0 0 2mm;
+        font-size: 9.5pt;
+      }
+
+      .role {
+        padding: 2mm 0;
+        border-top: 0;
+      }
+
+      .org {
+        margin: 0 0 1mm;
+      }
+
+      .role li {
+        margin-bottom: 0.5mm;
+        break-inside: avoid;
+      }
+
+      /* Keep each role heading with at least its first bullet. */
+      .role li:first-child {
+        break-before: avoid;
+      }
+
+      /* Projects print as a plain list of entries rather than boxed cards. */
+      .grid {
+        display: block;
+      }
+
+      /* Project entries mirror the Experience layout: title left, date right. */
+      .card {
+        margin-bottom: 2.5mm;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        break-inside: avoid;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        column-gap: 4mm;
+        align-items: baseline;
+      }
+
+      .card h3 {
+        margin: 0 0 0.5mm;
+        font-size: 10.5pt;
+        color: var(--green-dark);
+      }
+
+      .card .when {
+        margin: 0;
+        font-size: 9pt;
+        text-align: right;
+      }
+
+      .card p {
+        grid-column: 1 / -1;
+        color: var(--ink);
+      }
+
+      /* Dates and organisation lines in ink, so they survive printing and photocopying. */
+      .when {
+        color: var(--ink);
+      }
+
+      /* Skills, certifications and awards print as one row per group:
+         the group name on the left and its items as a single run of text. */
+      .print-rows > div {
+        display: grid;
+        grid-template-columns: 40mm 1fr;
+        gap: 4mm;
+        margin-bottom: 1.5mm;
+        break-inside: avoid;
+      }
+
+      /* Row labels sit beside their items, so they must not carry the heading
+         "keep with next" rule, which would make the whole section unbreakable. */
+      .print-rows h3 {
+        break-after: auto;
+        margin: 0;
+        font-size: 9.5pt;
+      }
+
+      .print-rows ul,
+      .print-rows .chips {
+        display: block;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .print-rows li {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        color: var(--ink);
+        font-size: 9.5pt;
+        font-weight: 400;
+      }
+
+      .print-rows li + li::before {
+        content: " \00B7  ";
+        color: var(--gold);
+      }
+
+      .edu {
+        gap: 1.5mm;
+      }
+
+      .edu p {
+        margin: 0;
+        color: var(--ink);
+      }
+
+      /* Recommendations print as compact quotes in two columns. */
+      .quotes {
+        gap: 2mm 6mm;
+      }
+
+      blockquote,
+      blockquote.featured {
+        padding: 0 0 0 3mm;
+        border-left-width: 2px;
+        border-radius: 0;
+        background: none;
+        color: var(--ink);
+        break-inside: avoid;
+      }
+
+      blockquote::before,
+      blockquote.featured::before {
+        margin-bottom: 0.5mm;
+        color: var(--gold);
+        font-size: 8pt;
+      }
+
+      blockquote p,
+      blockquote.featured p {
+        margin: 0 0 0.5mm;
+        font-size: 9pt;
+        font-style: italic;
+      }
+
+      blockquote footer,
+      blockquote.featured footer {
+        font-size: 8.5pt;
+        color: var(--ink);
+      }
+
+      blockquote .who,
+      blockquote.featured .who {
+        display: inline;
+        color: var(--green-dark);
+      }
+
+      blockquote .who::after {
+        content: ", ";
+      }
+
+      a {
+        text-decoration: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="hero">
+    <nav aria-label="Main">
+      <a class="brand" href="index.html">What Would <span>Llew</span> Do?</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a class="nav-keep" href="index.html#book">Book a chat</a>
+    </nav>
+
+    <div class="cv-head">
+      <img class="cv-photo" src="assets/images/profile.jpg" width="640" height="640" alt="Llewellyn Craddock">
+      <div>
+        <h1>Llewellyn Craddock</h1>
+        <p class="role-line">IT Solutions Engineer, AI Engineer and Game Developer</p>
+        <p class="contact">
+          Muizenberg, Cape Town, South Africa
+          &middot; <a href="https://www.linkedin.com/in/llewellyn-craddock-590366113/" data-print="linkedin.com/in/llewellyn-craddock-590366113">LinkedIn</a>
+          &middot; <a href="https://github.com/localhugdealer" data-print="github.com/localhugdealer">GitHub</a>
+          &middot; <a href="https://localhugdealer.itch.io/" data-print="localhugdealer.itch.io">itch.io</a>
+          <span class="print-only">Phone and email available on request.</span>
+        </p>
+        <div class="actions">
+          <button class="btn btn-gold" type="button" onclick="window.print()">Download PDF</button>
+          <a class="btn btn-ghost" href="index.html">Back to What Would Llew Do</a>
+        </div>
+        <p class="pdf-hint screen-only">Download PDF opens your print dialog. Choose "Save as PDF" as the destination.</p>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="summary" class="summary">
+      <h2>Profile</h2>
+      <p>IT Solutions Engineer with more than 10 years of experience bridging enterprise customers and technical delivery. I spent five years at VMware Carbon Black as a Specialist Solutions Engineer across EMEA, running architecture advisory, demos and proof of concepts for enterprise security deployments.</p>
+      <p>From 2023 to 2026 I founded and directed Nova Mentis, where I built Nova Nexus, a production multi-tenant AI decision support platform in Python with Pydantic AI and the OpenAI API, and opened it to 40+ early access users. I now make games as LocalHugDealer Studios.</p>
+      <p>What ties it together is a habit of asking "why" until the real problem shows up, then explaining the answer in plain English. I'm comfortable moving between a customer architecture conversation and the codebase in the same day, and I get real satisfaction from coaching the people around me.</p>
+    </section>
+
+    <div class="band screen-only">
+      <section id="timeline">
+        <h2>How I got here</h2>
+        <p class="lead">The short version of how a kid at the family computer ended up in cybersecurity, AI and game design.</p>
+        <ol class="timeline">
+          <li>
+            <span class="year">2004 to 2015</span>
+            <h3>School years</h3>
+            <p>King Edward VI Preparatory, St John's Preparatory and St John's College. IT, Advanced Mathematics and Dramatic Arts in the classroom, rowing, hockey and cricket outside it.</p>
+          </li>
+          <li>
+            <span class="year">2016</span>
+            <h3>A gap year and a fork in the road</h3>
+            <p>During a gap year I studied CompTIA Security+ through New Mexico Ruidoso College. I was booked on a game design course at Learn3D for 2017, then a job offer came along and I took the career safe route into IT. Game design stayed with me in every spare moment after that.</p>
+          </li>
+          <li>
+            <span class="year">2016</span>
+            <h3>Into cybersecurity</h3>
+            <p>Joined Netxactics, a security distributor, supporting partners and customers on Sophos, Rapid7, Thycotic, Flexera and Altaro, and running my first pre-sales demos.</p>
+          </li>
+          <li>
+            <span class="year">2017</span>
+            <h3>Managed security</h3>
+            <p>Took on work for Obsequium, Netxactics' sister company, looking after managed customer environments: firewalls, Rapid7 InsightIDR and Nexpose, and Sophos deployments.</p>
+          </li>
+          <li>
+            <span class="year">2019</span>
+            <h3>A move to the UK</h3>
+            <p>Moved to the UK in April and joined Carbon Black as a Solutions Engineer a few weeks later. Carbon Black became part of VMware later that year.</p>
+          </li>
+          <li>
+            <span class="year">2020</span>
+            <h3>Lockdown and the Digital Consultant</h3>
+            <p>Started the VMware Digital Consultant project, which grew to 70+ multilingual security assessments. Lockdown was a difficult stretch, spent largely alone in a small flat, and it planted the seed for Nova Nexus: the personalised guidance I needed and couldn't find.</p>
+          </li>
+          <li>
+            <span class="year">2021</span>
+            <h3>MVP of the year</h3>
+            <p>Named MVP of FY21 among all solution engineers globally across the business unit, and received the Perseverance Award from the Dell Synergy Team for getting the Dell channel up and running.</p>
+          </li>
+          <li>
+            <span class="year">2022</span>
+            <h3>Analytics and philosophy</h3>
+            <p>Built the Solution Engineering Analytics Suite in Power BI, adopted as standard tooling across the group. Began studying Advaita Vedanta at the School of Practical Philosophy.</p>
+          </li>
+          <li>
+            <span class="year">2023</span>
+            <h3>Mentoring and a new company</h3>
+            <p>Designed and led a mentorship programme for commercial solution engineers that lifted product knowledge by 20% to 40%. Completed VMware's Aspiring Manager programme, and founded Nova Mentis in August.</p>
+          </li>
+          <li>
+            <span class="year">2024</span>
+            <h3>Moving on from VMware</h3>
+            <p>After Broadcom acquired VMware and restructured the team, I chose to move on in February rather than continue through a contractor route. Started building Nova Nexus in November.</p>
+          </li>
+          <li>
+            <span class="year">Late 2024 to 2026</span>
+            <h3>Skill Forge</h3>
+            <p>Through Nova Mentis and as an official ScoreApp partner, built lead generation scorecards for coaches, consultancies, and legal and data firms, and ran masterclasses, scorecard audits and marketing direction workshops.</p>
+          </li>
+          <li>
+            <span class="year">Early 2026</span>
+            <h3>Nova Nexus early access</h3>
+            <p>Opened early access to 40+ users, with one-on-one vision workshops and demo sessions. Selected for the City of Cape Town Youth Start Entrepreneurial Challenge, one of 150 participants from 700+ applicants.</p>
+          </li>
+          <li>
+            <span class="year">Mid 2026</span>
+            <h3>Game design, finally</h3>
+            <p>Put Nova Mentis on hold and opened LocalHugDealer Studios. Learnt Godot in a week, then built Trust No 1 for the Brackeys Game Jam and placed #41 for enjoyment out of 2,248 ranked entries. Now building Enemy No. 1.</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+
+    <section id="experience">
+      <h2>Experience</h2>
+
+      <article class="role">
+        <div class="role-head">
+          <h3>Game Developer and Founder</h3>
+          <span class="when">Aug 2026 to present</span>
+        </div>
+        <p class="org">LocalHugDealer Studios, Cape Town (remote)</p>
+        <ul>
+          <li>Founded a solo indie game studio and built its brand and website. Code lives on the <a href="https://github.com/localhugdealer-studios">studio GitHub</a>.</li>
+          <li>Writing the music for the games in Ableton, drawing on music production since 2020.</li>
+          <li>Building Enemy No. 1, a twin-stick action roguelite in Godot where your number is your health, your size and your damage.</li>
+          <li>Built Trust No 1 in two weeks for the Brackeys 2026.2 Game Jam, learning Godot from scratch. Placed #41 for enjoyment and #50 for gameplay out of 2,248 ranked entries, with 74 ratings.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head">
+          <h3>Founder and Director</h3>
+          <span class="when">Aug 2023 to Aug 2026</span>
+        </div>
+        <p class="org">Nova Mentis, Cape Town (remote)</p>
+        <ul>
+          <li>Built Nova Nexus, a multi-tenant AI decision support platform in Python, using Pydantic AI, the OpenAI API and Anvil, deployed to production with paying users.</li>
+          <li>Engineered the reliability layer: per-call telemetry capturing tokens, USD cost, latency and errors, schema-validated structured outputs with automatic retry on validation failure, and a prompt and schema registry.</li>
+          <li>Implemented semantic recommendations using OpenAI embeddings with cosine similarity, blended with evaluation scores so ranking reflects impact rather than topical similarity alone.</li>
+          <li>Designed multi-tenant isolation with per-tenant API key scoping and tenant-filtered retrieval.</li>
+          <li>Ran Skill Forge, a scorecard service built on ScoreApp as an official partner. Led the design of lead generation scorecards for clients including Four and One Consulting, Abantu Coaching, Data Meaning, Legal Ninjas, Tracey Clark, Stress to Strength and Soaring Seagulls Coaching.</li>
+          <li>Ran Skill Forge masterclasses on lead qualification, scorecard audits and marketing direction workshops.</li>
+          <li>Directed web applications built with Python, Node.js, Anvil and Docker, and mobile applications built with Flutter and FlutterFlow, across cloud and local deployment.</li>
+          <li>Designed and built websites and ran marketing campaigns to support the product launch.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head">
+          <h3>Specialist Solutions Engineer, Security, EMEA</h3>
+          <span class="when">May 2019 to Feb 2024</span>
+        </div>
+        <p class="org">VMware Carbon Black</p>
+        <ul>
+          <li>Ran pre-sales technical delivery for enterprise cybersecurity deployments across EMEA, covering next-gen antivirus, endpoint detection and response, and application control: requirements scoping, architecture advisory, demos, proof of concepts and post-sale configuration guidance.</li>
+          <li>Worked closely with Dell teams on technical training, support and joint account planning for Dell and commercial customers.</li>
+          <li>Architected and led the VMware Digital Consultant, a library of 70+ multilingual security assessments aligned to frameworks like NIST.</li>
+          <li>Built the team's Power BI analytics suite (skills matrix, engagement request tracking, activity reporting), adopted as standard tooling across the group.</li>
+          <li>Wrote Python tools to automate team workflows, and helped set processes and standards for the team.</li>
+          <li>Mentored solution engineers and designed a technical assessment framework and coaching programme.</li>
+          <li>Named MVP of FY21 among all solution engineers globally across the business unit, and received the Dell Synergy Team Perseverance Award in 2021.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head">
+          <h3>Technical Support Engineer</h3>
+          <span class="when">Jan 2017 to Mar 2019</span>
+        </div>
+        <p class="org">Obsequium, Johannesburg</p>
+        <ul>
+          <li>Looked after managed customer environments: firewalls, Rapid7 InsightIDR and Nexpose instances, and Sophos antivirus deployments.</li>
+          <li>Deployed security tools including antivirus, firewalls, vulnerability scanners and privileged access management.</li>
+          <li>Worked across both managed customers and distribution partners, as Obsequium and its sister company Netxactics shared one technical team.</li>
+        </ul>
+      </article>
+
+      <article class="role">
+        <div class="role-head">
+          <h3>Technical Support</h3>
+          <span class="when">Jul 2016 to Jan 2019</span>
+        </div>
+        <p class="org">Netxactics</p>
+        <ul>
+          <li>Provided technical support and product help to partners and end users for a security distributor carrying Sophos, Rapid7, Thycotic, Flexera and Altaro.</li>
+          <li>Ran pre-sales product demos and proof of concepts for partners and end users.</li>
+        </ul>
+      </article>
+    </section>
+
+    <div class="band">
+      <section id="projects">
+        <h2>Significant projects</h2>
+        <div class="grid">
+          <article class="card">
+            <h3>Enemy No. 1</h3>
+            <span class="when">Aug 2026 to present, LocalHugDealer Studios</span>
+            <p>Twin-stick action roguelite set on the number line, taking its escalating runs from Risk of Rain and its eat, grow and split mechanics from agar.io. Your number is your health, your size and your damage.</p>
+          </article>
+          <article class="card">
+            <h3>Trust No 1</h3>
+            <span class="when">Aug 2026, LocalHugDealer Studios</span>
+            <p>Solo Godot game for the Brackeys 2026.2 Game Jam, themed "Trust No One". 0 has been captured by Numero Uno, and every number containing a 1 is corrupt. Placed #41 for enjoyment out of 2,248 ranked entries. <a href="https://localhugdealer.itch.io/trust-no-1">Play it on itch.io</a></p>
+          </article>
+          <article class="card">
+            <h3>Grounded Citation Agent</h3>
+            <span class="when">Personal project</span>
+            <p>LangGraph agent that answers questions from a knowledge base and verifies its own citations. A verification node checks every cited source against what retrieval actually returned, catching hallucinated sources and uncited claims, and routes ungrounded answers back to the model for correction. Built to explore reliability patterns for production RAG systems.</p>
+          </article>
+          <article class="card">
+            <h3>Nova Nexus</h3>
+            <span class="when">Nov 2024 to Jul 2026, Nova Mentis</span>
+            <p>Multi-tenant AI vision and decision support platform, built and shipped solo in Python and Anvil. Pydantic AI orchestrates OpenAI structured-output calls against validated schemas. Includes per-call telemetry with tenant attribution, a prompt and schema registry, token-based billing with pre-deduction and per-tenant API key scoping. Semantic recommendations use text-embedding-3-small with cosine similarity blended with evaluation scores. Launched an early access programme with 40+ users.</p>
+          </article>
+          <article class="card">
+            <h3>Skill Forge scorecards</h3>
+            <span class="when">2024 to 2026, Nova Mentis</span>
+            <p>Bespoke lead generation scorecards on ScoreApp: a short interactive assessment, a scored results page and tailored next steps. Built for seven named clients, from a Digital Learning Culture Scorecard and an AI Readiness assessment to a Legal Gap Analysis and a Workplace Wellbeing Scan.</p>
+          </article>
+          <article class="card">
+            <h3>Carbon Black Mentorship</h3>
+            <span class="when">Jan 2023 to Feb 2024, VMware Carbon Black</span>
+            <p>Designed and led a coaching and mentorship programme for commercial solution engineers, including a technical assessment framework and tailored sessions that drove a 20% to 40% increase in product knowledge.</p>
+          </article>
+          <article class="card">
+            <h3>Solution Engineering Analytics Suite</h3>
+            <span class="when">Jan 2022 to Aug 2023, VMware Carbon Black</span>
+            <p>Power BI dashboards giving management visibility of team capacity, skills coverage and engagement volume: a Skills Matrix built on Microsoft Forms data, an Engagement Request Dashboard and an Activities Dashboard combining manual and Power Automate logging. Adopted as standard tracking tools across the group.</p>
+          </article>
+          <article class="card">
+            <h3>VMware Digital Consultant</h3>
+            <span class="when">Oct 2020 to Feb 2024, VMware Carbon Black</span>
+            <p>Technical lead, assessment coordinator and platform admin. Designed 70+ multilingual assessments aligned to frameworks like NIST, built a Power BI dashboard and leaderboards to track adoption, and created go to market presentations for sellers globally. Secured the Cybersecurity Assessment's place on VMware's internal Sales Vault and Carbon Black Tech Zone.</p>
+          </article>
+        </div>
+      </section>
+    </div>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <div class="grid print-rows">
+        <div class="skill-group">
+          <h3>AI engineering</h3>
+          <ul class="chips">
+            <li>Python</li><li>LangChain</li><li>LangGraph</li><li>Pydantic AI</li><li>RAG</li><li>Vector embeddings</li><li>Agent and tool-calling design</li><li>Structured outputs</li><li>OpenAI API</li><li>Anthropic API</li><li>Google AI APIs</li><li>Neo4j</li><li>Claude Code</li><li>Cursor</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Software and production</h3>
+          <ul class="chips">
+            <li>Anvil</li><li>Node.js</li><li>Docker</li><li>AWS</li><li>Flutter</li><li>FlutterFlow</li><li>Multi-tenancy</li><li>Telemetry and cost tracking</li><li>Schema validation</li><li>SQL</li><li>Shell scripting</li><li>Website design and build</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Solutions engineering</h3>
+          <ul class="chips">
+            <li>Requirements scoping</li><li>Architecture advisory</li><li>Demos</li><li>Proof of concepts</li><li>Cloud and on-prem deployment</li><li>Implementation support</li><li>Technical documentation</li><li>Presentations</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Cybersecurity</h3>
+          <ul class="chips">
+            <li>Endpoint security</li><li>EDR</li><li>Next-gen antivirus</li><li>Application control</li><li>Vulnerability management</li><li>Firewalls</li><li>SIEM and log management</li><li>Incident response</li><li>Penetration testing</li><li>Privileged access management</li><li>RBAC</li><li>NIST</li><li>Active Directory</li><li>Group Policy</li><li>Windows, macOS and Linux</li><li>VMware ESXi</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Data and automation</h3>
+          <ul class="chips">
+            <li>Power BI</li><li>Power Automate</li><li>Microsoft Forms</li><li>Excel</li><li>ScoreApp</li><li>Scorecards and assessments</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Game design and creative</h3>
+          <ul class="chips">
+            <li>Godot</li><li>Unity</li><li>Aseprite</li><li>Game design</li><li>Prototyping</li><li>System design</li><li>Ableton</li><li>Music production</li><li>Piano</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Leadership and people</h3>
+          <ul class="chips">
+            <li>Coaching and mentoring</li><li>Team leadership</li><li>Assessment design</li><li>Community building</li><li>Content creation</li><li>Strategic planning</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="band">
+      <section id="certifications">
+        <h2>Certifications</h2>
+        <div class="grid certs print-rows">
+          <div>
+            <h3>AI and data</h3>
+            <ul>
+              <li>Foundation: Introduction to LangChain (Python), LangChain (2026)</li>
+              <li>Neo4j and LLM Fundamentals, Neo4j (2024)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Security foundations</h3>
+            <ul>
+              <li>VMware Security Technical Associate (2022)</li>
+              <li>CompTIA Security+ (2016)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Carbon Black</h3>
+            <ul>
+              <li>Response Cloud Administrator (2019)</li>
+              <li>Protection Associate Consultant (2019)</li>
+              <li>Response Associate Consultant (2019)</li>
+              <li>Defense Associate Analyst (2019)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Sophos</h3>
+            <ul>
+              <li>Certified Architect (2018)</li>
+              <li>XG UTM Architect (2018)</li>
+              <li>XG UTM Engineer (2018)</li>
+              <li>Central Engineer (2017)</li>
+              <li>SafeGuard Encryption Engineer (2017)</li>
+              <li>SG UTM Certified Engineer (2016)</li>
+              <li>Endpoint Protection v5.3 and v5.5 (2016)</li>
+              <li>Certified Engineer (2016)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Rapid7</h3>
+            <ul>
+              <li>InsightIDR Certified Specialist (2018)</li>
+              <li>InsightVM Certified Administrator (2017)</li>
+              <li>AppSpider Certified Specialist (2017)</li>
+              <li>Nexpose Certified Administrator (2016)</li>
+              <li>Metasploit Pro Certified Specialist (2016)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Thycotic, Centrify</h3>
+            <ul>
+              <li>Thycotic Privilege Manager (2017)</li>
+              <li>Thycotic Secret Server (2017)</li>
+              <li>Centrify SaaS (2017)</li>
+              <li>Centrify Server Suite (2017)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Leadership</h3>
+            <ul>
+              <li>VMware Aspiring Manager Training Program (2023)</li>
+              <li>Building High Performance Teams, LinkedIn (2023)</li>
+              <li>Managing Skills for Remote Workers, LinkedIn (2023)</li>
+              <li>VMware Multi-Cloud Mentorship Program (2022)</li>
+              <li>OpportunityX Template Author, CapametriX (2021)</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Courses and other</h3>
+            <ul>
+              <li>Complete Music Production with Andrew Huang (Monthly)</li>
+              <li>PADI Open Water Scuba Diver (2025)</li>
+              <li>First Aid Level 3 (2014)</li>
+              <li>First Aid Level 1 (2013)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="edu">
+        <div>
+          <div class="role-head"><h3>The School of Practical Philosophy</h3><span class="when">2022 to present</span></div>
+          <p>Study of Advaita Vedanta (non-duality), drawing on Eastern and Western philosophical traditions.</p>
+        </div>
+        <div>
+          <div class="role-head"><h3>New Mexico Ruidoso College</h3><span class="when">2016</span></div>
+          <p>CompTIA Security+, studied remotely.</p>
+        </div>
+        <div>
+          <div class="role-head"><h3>St John's College</h3><span class="when">2011 to 2015</span></div>
+          <p>Advanced Programme Mathematics, Mathematics, IT, Dramatic Arts, Physical and Chemical Sciences, English Language and Literature. Rowing, hockey and cricket.</p>
+        </div>
+        <div>
+          <div class="role-head"><h3>St John's Preparatory School</h3><span class="when">2008 to 2010</span></div>
+        </div>
+        <div>
+          <div class="role-head"><h3>King Edward VI Preparatory School</h3><span class="when">2004 to 2007</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards">
+      <h2>Awards and communities</h2>
+      <div class="grid certs print-rows">
+        <div>
+          <h3>Awards</h3>
+          <ul>
+            <li>Perseverance Award, VMware SBU Dell Synergy Team (2021)</li>
+            <li>MVP of FY21 among all solution engineers globally across the business unit, VMware Carbon Black (2021)</li>
+            <li>The Duke of Edinburgh's International Award, Gold (2015)</li>
+            <li>The Duke of Edinburgh's International Award, Bronze (2014)</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Startup communities</h3>
+          <ul>
+            <li>OPUS, founding member (2025 to present)</li>
+            <li>Suits &amp; Sneakers, member (2025 to present)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="band">
+      <section id="recommendations">
+        <h2>Recommendations</h2>
+        <p class="lead">Snippets from LinkedIn recommendations, client testimonials and workshop feedback.</p>
+        <div class="quotes">
+          <blockquote class="featured">
+            <p>"Llewellyn has matured very quickly into a thought leader within VMware Carbon Black... with great intellect has resulted in numerous very well deserved global accolades."</p>
+            <footer><span class="who">Shaun Larvin</span>RVP Channels EMEA, VMware Carbon Black</footer>
+          </blockquote>
+          <blockquote>
+            <p>"Llewellyn is the Key Person of Influence in the score card space... His review of my score card was incredibly insightful."</p>
+            <footer><span class="who">Scorecard audit client</span>Skill Forge, 2025</footer>
+          </blockquote>
+          <blockquote>
+            <p>"I work with a lot of partners and very few deliver like Nova Mentis. The quality of their work is consistently high, their thinking is sharp, and they don't drop the ball."</p>
+            <footer><span class="who">Jodi</span>Tracey Clark</footer>
+          </blockquote>
+          <blockquote>
+            <p>"Llewellyn is very knowledgeable and brings with him a unique set of expertise."</p>
+            <footer><span class="who">Craig</span>Four and One Consulting</footer>
+          </blockquote>
+          <blockquote>
+            <p>"Prompt communication, highly professional, delivered on time, and genuinely fun, great people to collaborate with."</p>
+            <footer><span class="who">Marvin</span>Data Meaning, on three analytics and AI scorecards</footer>
+          </blockquote>
+          <blockquote>
+            <p>"It reframed how we think about lead qualification... Thanks to Llewellyn and the team for a sharp, focused &amp; incredibly insightful session."</p>
+            <footer><span class="who">Masterclass attendee</span>Skill Forge masterclass, 2025</footer>
+          </blockquote>
+          <blockquote>
+            <p>"I especially appreciated the thoughtful insights and extra tips he added to the scorecard."</p>
+            <footer><span class="who">Natasha</span>Stress to Strength</footer>
+          </blockquote>
+          <blockquote>
+            <p>"Always striving for complete professionalism, whether in appearance, communication, technical work or boardroom presentation."</p>
+            <footer><span class="who">Orrin Limerick</span>Senior colleague at Obsequium</footer>
+          </blockquote>
+          <blockquote>
+            <p>"From the first day he has always been a phenomenal team member who always took the time to assist, teach and mentor those around him."</p>
+            <footer><span class="who">Tamaryn Theron</span>Colleague at Obsequium</footer>
+          </blockquote>
+          <blockquote>
+            <p>"I have seen him rise through the ranks of junior security specialist all the way through to a senior security consultant."</p>
+            <footer><span class="who">Mark-Anthony Salgado</span>Managed Llewellyn directly at Obsequium</footer>
+          </blockquote>
+          <blockquote>
+            <p>"I feel they captured the essence of my brand and my product excellently!"</p>
+            <footer><span class="who">Emma</span>Soaring Seagulls Coaching</footer>
+          </blockquote>
+        </div>
+      </section>
+    </div>
+
+    <section id="beyond" class="beyond screen-only">
+      <h2>Beyond work</h2>
+      <p class="lead">Always learning, always building. When I'm not at a keyboard, you'll usually find me doing one of these.</p>
+      <ul class="chips">
+        <li>Surfing</li><li>Piano</li><li>Music production in Ableton</li><li>Scuba diving</li><li>Photography</li><li>Cooking</li><li>Drawing and painting</li><li>Computer games</li><li>Philosophy</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    &copy; 2026 Llewellyn Craddock, Muizenberg, Cape Town
+    <br>
+    <a href="index.html">What Would Llew Do?</a>
+    <a href="https://www.linkedin.com/in/llewellyn-craddock-590366113/">LinkedIn</a>
+    <a href="https://www.localhugdealer.com/">LocalHugDealer Studios</a>
+  </footer>
+</body>
+</html>
