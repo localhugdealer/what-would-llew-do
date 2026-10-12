@@ -10,7 +10,19 @@ The site is plain static HTML and CSS with no framework or build step, so there 
 
 ## Hosting
 
-The site is published with GitHub Pages from the root of the `main` branch of [localhugdealer/what-would-llew-do](https://github.com/localhugdealer/what-would-llew-do), in the same way as the LocalHugDealer Studios site. It lives at https://localhugdealer.github.io/what-would-llew-do/. GitHub Pages serves a project site from a subpath (`<user>.github.io/<repo>/`) until a custom domain is configured, so every asset path is relative.
+The site is published with GitHub Pages from the root of the `main` branch of [localhugdealer/what-would-llew-do](https://github.com/localhugdealer/what-would-llew-do), in the same way as the LocalHugDealer Studios site. Every asset path is relative, so the site also works from the project subpath https://localhugdealer.github.io/what-would-llew-do/, which redirects to the custom domain.
+
+The site's domain is `whatwouldllewdo.com`, registered with GoDaddy. The `CNAME` file at the repo root tells GitHub Pages to serve the site on that domain. The GoDaddy DNS records that point the domain at GitHub are:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| A | `@` | `185.199.108.153` |
+| A | `@` | `185.199.109.153` |
+| A | `@` | `185.199.110.153` |
+| A | `@` | `185.199.111.153` |
+| CNAME | `www` | `localhugdealer.github.io` |
+
+GitHub redirects `www.whatwouldllewdo.com` to the bare domain. "Enforce HTTPS" in the repo's Pages settings becomes available once GitHub has issued the certificate for the domain.
 
 ## Structure
 
@@ -35,6 +47,8 @@ The site is published with GitHub Pages from the root of the `main` branch of [l
   - `young-llew.jpg`: web copy of `Baby photo.jpg`, used in the about section.
   - `favicon.svg`: green circle with a gold question mark.
   - `Square profile.png` and `Baby photo.jpg` are the full-size originals. Pages reference the web copies, which keeps the page light.
+- `robots.txt`: lets every crawler index the whole site and points to the sitemap.
+- `sitemap.xml`: lists both pages for search engines. Add any new page here, and bump its `lastmod` date when a page changes meaningfully.
 
 ## Brand
 
@@ -46,9 +60,16 @@ The site is published with GitHub Pages from the root of the `main` branch of [l
   - Avoid dark text on green backgrounds. Use white, mist or gold instead.
 - **Tone:** open and friendly, plain English, no jargon. Copy is written in Llewellyn's voice and never uses em dashes or en dashes.
 
-## Link previews
+## Search and link previews
 
-The page carries Open Graph title and description tags. Previewers need absolute URLs for `og:url` and `og:image`, so those tags are only meaningful once the site has a custom domain.
+Both pages set `lang="en-ZA"` and carry the same set of tags in their `<head>`:
+
+- A `<title>` and meta description, written for search results. The home page title names Cape Town for local searches.
+- A canonical link, so search engines treat `https://whatwouldllewdo.com/` as the one true address even when the page is also reachable on the github.io subpath or as `index.html`.
+- Open Graph tags (`og:url`, `og:image` and the rest) and a `twitter:card` of type `summary`, for link previews in WhatsApp, LinkedIn and other apps. The preview image is the square `profile.jpg`, which suits the small summary card.
+- JSON-LD structured data. The home page describes the site (`WebSite`), Llewellyn (`Person`) and the tech help service (`ProfessionalService`), including the free first chat and the R300 hourly rate as offers. The CV page is a `ProfilePage` about the same `Person`, who shares the `@id` `https://whatwouldllewdo.com/#llew` across both pages. Keep prices, profile links and job titles in step with the visible page copy.
+
+Every URL in these tags is absolute and uses `https://whatwouldllewdo.com/`, because previewers and crawlers ignore relative URLs there. Google's Rich Results Test (https://search.google.com/test/rich-results) checks the structured data once the domain is live.
 
 ## Testimonial sources
 
