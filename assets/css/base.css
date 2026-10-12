@@ -309,13 +309,41 @@ blockquote.featured .who {
   list-style: none;
 }
 
-.site-footer .socials a {
+.socials a,
+.socials button {
   display: block;
   margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
   transition: color 0.15s;
 }
 
-.socials a:hover {
+.socials a:hover,
+.socials button:hover {
+  color: var(--gold);
+}
+
+/* Share row: an icon list (reusing .socials) of links to each app's share page, plus the
+   Share and Copy link buttons, which assets/js/share.js reveals when the browser supports them. */
+.share {
+  margin: 0 0 1.25rem;
+  color: var(--sage);
+}
+
+.share p {
+  margin: 0 0 0.75rem;
+}
+
+.share .socials {
+  margin: 0;
+}
+
+.share .share-status {
+  min-height: 1.5em;
+  margin: 0.5rem 0 0;
   color: var(--gold);
 }
 
