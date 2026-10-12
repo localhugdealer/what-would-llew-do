@@ -1,6 +1,6 @@
 # What Would Llew Do?
 
-The personal website of Llewellyn Craddock, offering friendly one-on-one tech help to individuals. It covers AI tools, automations, 3D modelling and printing, everyday tech, backups and online safety, Excel and data, game design and learning new tools.
+The personal website of Llewellyn Craddock, offering friendly one-on-one tech help to individuals. It covers everyday tech, Excel and data, learning new tools, AI tools, automations, 3D modelling and printing, backups and online safety, and game design.
 
 The site funnels visitors to a free 30 minute first chat, with sessions after that at R300 per hour.
 
@@ -57,7 +57,7 @@ GitHub redirects `www.whatwouldllewdo.com` to the bare domain. "Enforce HTTPS" i
 - **Colours:** muted greens and white, with gold as the accent. All colours are defined once as custom properties in `assets/css/base.css`. Use those rather than ad hoc hex values.
   - `--green` `#2F6B55` is the primary colour. `--green-dark` and `--green-deep` are for text on light backgrounds and dark sections.
   - `--mist` `#EEF3EF` tints alternating bands. `--sage` is for borders and soft text on dark green.
-  - `--gold` `#C9A23F` is reserved for calls to action and small highlights. `--gold-light` is for gold text on dark green.
+  - `--gold` `#C9A23F` is reserved for calls to action and small highlights. It is also the colour for gold text on dark green.
   - Avoid dark text on green backgrounds. Use white, mist or gold instead.
 - **Tone:** open and friendly, plain English, no jargon. Copy is written in Llewellyn's voice and never uses em dashes or en dashes.
 
