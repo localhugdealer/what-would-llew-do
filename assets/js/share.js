@@ -17,6 +17,13 @@ document.querySelectorAll('.share').forEach((share) => {
 
   if (navigator.share) {
     nativeButton.parentElement.hidden = false;
+
+    // On phones, links to Facebook, X, LinkedIn and email hand over to the installed app, which
+    // often drops the shared address. The share menu posts to those apps properly, so phones
+    // show it in their place. WhatsApp's link keeps the address, so it stays.
+    if (matchMedia('(pointer: coarse)').matches) {
+      share.querySelectorAll('.share-app').forEach((app) => { app.hidden = true; });
+    }
     // A rejection here usually means the visitor closed the share menu, which needs no message.
     nativeButton.addEventListener('click', () => {
       navigator.share({ title: document.title, url }).catch(() => {});
