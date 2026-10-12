@@ -326,8 +326,17 @@ blockquote.featured .who {
   color: var(--gold);
 }
 
+/* The page's SVG sprite of share icons. It takes up no space, but stays rendered rather than
+   display: none, because every browser can draw <use> references from a rendered sprite. */
+.icon-sprite {
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
 /* Share row: an icon list (reusing .socials) of links to each app's share page, plus the
-   Share and Copy link buttons, which assets/js/share.js reveals when the browser supports them. */
+   Share and Copy link buttons that assets/js/share.js drives. */
 .share {
   margin: 0 0 1.25rem;
   color: var(--sage);

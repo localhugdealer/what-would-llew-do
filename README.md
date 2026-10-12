@@ -46,10 +46,10 @@ GitHub redirects `www.whatwouldllewdo.com` to the bare domain. "Enforce HTTPS" i
 - **Footer socials:** both pages open their footer with a `.socials` row of icon links to LinkedIn, YouTube, X and Reddit. Each icon is an inline SVG (from Simple Icons) filled with `currentColor`, so it follows the footer's sage link colour and turns gold on hover. Inline SVG keeps the icons working when a page is opened straight from disk, where external SVG references are blocked. The row is the same on both pages, so a change to one goes in the other too, along with the `sameAs` lists in both pages' JSON-LD.
 - **Share rows:** a `.share` row lets visitors pass a page on. The home page has one in `#book` and one in the footer, below the socials. The CV page has one in the footer. Each row shares the page's canonical address and has:
   - Links to the share pages of WhatsApp, Facebook, X and LinkedIn (opening in a new tab) and an email link, with the address and the page's title already filled in. These work without a script.
-  - A Share button that opens the device's own share menu. Instagram has no share link for websites, so this is how visitors reach it, along with any other app on their device.
-  - A Copy link button, with a short "Link copied" message in the row's `.share-status` line.
-  - The icons come from an SVG sprite of `<symbol>` elements at the top of each page's `<body>`, which every row draws through `<use>`. The rows are the same on every page apart from the shared address and title, so a change to one goes in all of them.
-- `assets/js/share.js`: reveals the Share and Copy link buttons when the browser supports them and handles their clicks. Every page with a share row loads it with `defer`.
+  - A Share button that opens the device's own share menu. Instagram has no share link for websites, so this is how visitors reach it, along with any other app on their device. It only shows in browsers that have a share menu, which covers phones and most desktop browsers on Windows and macOS.
+  - A Copy link button, with a short "Link copied" message in the row's `.share-status` line. Where the browser blocks clipboard access, the line shows the address instead.
+  - The icons come from an SVG sprite of `<symbol>` elements at the top of each page's `<body>`, which every row draws through `<use>`. The sprite carries the `.icon-sprite` class, which keeps it from taking up space at the top of the page. The rows are the same on every page apart from the shared address and title, so a change to one goes in all of them.
+- `assets/js/share.js`: reveals the Share button when the browser supports it and handles the Share and Copy link clicks. Every page with a share row loads it with `defer`.
 - `assets/images/`: site images.
   - `profile.jpg`: 640x640 web copy of `Square profile.png`, used in the hero of both pages.
   - `young-llew.jpg`: web copy of `Baby photo.jpg`, used in the about section.
