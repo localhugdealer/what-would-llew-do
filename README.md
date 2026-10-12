@@ -47,6 +47,7 @@ GitHub redirects `www.whatwouldllewdo.com` to the bare domain. "Enforce HTTPS" i
 - `assets/images/`: site images.
   - `profile.jpg`: 640x640 web copy of `Square profile.png`, used in the hero of both pages.
   - `young-llew.jpg`: web copy of `Baby photo.jpg`, used in the about section.
+  - `link-preview.jpg`: 1200x630 link preview image for both pages, carrying the hero headline "Tech support that speaks your language", a one-line summary, the web address and the gold-ringed profile photo. The source is the "What Would Llew Do - Link Preview" design in Canva (1600x900, built on the "What Would Llew Do" brand kit), exported as PNG and centre-cropped to 1.91:1, so keep its text and photo clear of the top and bottom 30px.
   - `favicon.svg`: green circle with a gold question mark.
   - `Square profile.png` and `Baby photo.jpg` are the full-size originals. Pages reference the web copies, which keeps the page light.
 - `robots.txt`: lets every crawler index the whole site and points to the sitemap.
@@ -68,7 +69,7 @@ Both pages set `lang="en-ZA"` and carry the same set of tags in their `<head>`:
 
 - A `<title>` and meta description, written for search results. The home page title names Cape Town for local searches.
 - A canonical link, so search engines treat `https://whatwouldllewdo.com/` as the one true address even when the page is also reachable on the github.io subpath or as `index.html`.
-- Open Graph tags (`og:url`, `og:image` and the rest) and a `twitter:card` of type `summary`, for link previews in WhatsApp, LinkedIn and other apps. The preview image is the square `profile.jpg`, which suits the small summary card.
+- Open Graph tags (`og:url`, `og:image` and the rest) and a `twitter:card` of type `summary_large_image`, for link previews in WhatsApp, LinkedIn and other apps. Both pages use `link-preview.jpg`, sized 1200x630 (the 1.91:1 ratio these apps show as a large card), with its width, height and alt text set alongside it. The home page `og:title` leads with the hero headline, so a shared link reads the same as the page it opens.
 - JSON-LD structured data. The home page describes the site (`WebSite`), Llewellyn (`Person`) and the tech help service (`ProfessionalService`), including the WhatsApp number as its `telephone`. It lists no prices or offers, in line with the page copy. The CV page is a `ProfilePage` about the same `Person`, who shares the `@id` `https://whatwouldllewdo.com/#llew` across both pages. Keep contact details, profile links and job titles in step with the visible page copy.
 
 Every URL in these tags is absolute and uses `https://whatwouldllewdo.com/`, because previewers and crawlers ignore relative URLs there. Google's Rich Results Test (https://search.google.com/test/rich-results) checks the structured data once the domain is live.
