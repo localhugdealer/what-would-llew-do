@@ -2,7 +2,7 @@
 
 The personal website of Llewellyn Craddock, offering friendly one-on-one tech help to individuals. It covers everyday tech, Excel and data, learning new tools, AI tools, automations, 3D modelling and printing, backups and online safety, and game design.
 
-The site funnels visitors to a free 30 minute first chat, with sessions after that at R300 per hour.
+The site funnels visitors to a WhatsApp chat with Llewellyn. It does not mention prices.
 
 ## Running locally
 
@@ -27,12 +27,13 @@ GitHub redirects `www.whatwouldllewdo.com` to the bare domain. "Enforce HTTPS" i
 ## Structure
 
 - `index.html`: the whole site as a single page. Page-specific styles live in its `<style>` block. Sections, in order:
-  - Hero (`header.hero`): headline, the two calls to action and the profile photo.
+  - Hero (`header.hero`): headline, the two calls to action (the main one opens WhatsApp) and the profile photo.
   - `#help`: cards for each kind of help, each with a typical question in the visitor's own words.
-  - `#how`: the three-step process and the pricing panel.
+  - `#how`: the three-step process, starting with a WhatsApp message.
   - `#about`: Llewellyn's background, a row of fact chips and a link to the CV page.
   - `#testimonials`: short snippets from workshop and masterclass feedback, Skill Forge clients, Nova Nexus users and LinkedIn recommendations, with a link to the fuller set on the CV page. The `.featured` quote spans both columns. Keep the number of other quotes even so the two-column grid has no gap.
-  - `#book`: the single contact point. Every booking button on the page links to this section, so the contact link only lives in one place. Its button (`.btn-whatsapp`, with an inline WhatsApp icon) opens a chat with the WhatsApp Business number +27 64 521 0967 through `https://wa.me/27645210967`, with an opening message already typed in the `text` parameter. The number also shows as text below the button for visitors on a computer, and appears as `telephone` in the JSON-LD.
+  - `#book`: the closing call to action, a WhatsApp button with the number shown as text below it for visitors on a computer.
+- **WhatsApp links:** every call to action opens a chat with the WhatsApp Business number +27 64 521 0967 through `https://wa.me/27645210967`, with an opening message already typed in the `text` parameter. The link appears in the hero button, the `#book` button and the "WhatsApp me" nav link on both pages, all with the same address and message, so a change to one goes in all of them. The buttons use `.btn-whatsapp`, which adds an inline WhatsApp icon (from Simple Icons). The number also appears as `telephone` in the home page JSON-LD.
 - `cv.html`: Llewellyn's full CV, written for employers and collaborators. Sections, in order: header with the Download PDF button, `#summary`, `#timeline`, `#experience`, `#projects`, `#skills`, `#certifications` (including courses), `#education`, `#awards` (awards and startup communities), `#recommendations` and `#beyond`.
   - **PDF export:** the Download PDF button calls `window.print()`, and the `@media print` block in the page's `<style>` is the PDF layout. It produces about 4 A4 pages:
     - Flowing text rather than boxed cards, because boxes can't split across pages and leave gaps. Projects print as plain entries with the title on the left and the date on the right, matching Experience.
@@ -68,7 +69,7 @@ Both pages set `lang="en-ZA"` and carry the same set of tags in their `<head>`:
 - A `<title>` and meta description, written for search results. The home page title names Cape Town for local searches.
 - A canonical link, so search engines treat `https://whatwouldllewdo.com/` as the one true address even when the page is also reachable on the github.io subpath or as `index.html`.
 - Open Graph tags (`og:url`, `og:image` and the rest) and a `twitter:card` of type `summary`, for link previews in WhatsApp, LinkedIn and other apps. The preview image is the square `profile.jpg`, which suits the small summary card.
-- JSON-LD structured data. The home page describes the site (`WebSite`), Llewellyn (`Person`) and the tech help service (`ProfessionalService`), including the free first chat and the R300 hourly rate as offers. The CV page is a `ProfilePage` about the same `Person`, who shares the `@id` `https://whatwouldllewdo.com/#llew` across both pages. Keep prices, profile links and job titles in step with the visible page copy.
+- JSON-LD structured data. The home page describes the site (`WebSite`), Llewellyn (`Person`) and the tech help service (`ProfessionalService`), including the WhatsApp number as its `telephone`. It lists no prices or offers, in line with the page copy. The CV page is a `ProfilePage` about the same `Person`, who shares the `@id` `https://whatwouldllewdo.com/#llew` across both pages. Keep contact details, profile links and job titles in step with the visible page copy.
 
 Every URL in these tags is absolute and uses `https://whatwouldllewdo.com/`, because previewers and crawlers ignore relative URLs there. Google's Rich Results Test (https://search.google.com/test/rich-results) checks the structured data once the domain is live.
 
