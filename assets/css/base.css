@@ -300,6 +300,33 @@ blockquote.featured .who {
   margin: 0 0.5rem;
 }
 
+/* Social profile icons. The SVGs are inline so they take the link colour via currentColor. */
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 0 0 1.25rem;
+  padding: 0;
+  list-style: none;
+}
+
+.site-footer .socials a {
+  display: block;
+  margin: 0;
+  transition: color 0.15s;
+}
+
+.socials a:hover {
+  color: var(--gold-light);
+}
+
+.socials svg {
+  display: block;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: currentColor;
+}
+
 @media screen and (max-width: 800px) {
   /* Phones keep only the brand and links marked .nav-keep. */
   nav a:not(.brand):not(.nav-keep) {
